@@ -40,3 +40,38 @@ SET Points = 107
 WHERE Name = "Alex" and Points =200;
 
 # ---------------------------------------------------------------
+
+
+
+
+
+# ------------ Creating Table ----------------------------
+   
+    #create a table 
+    CREATE TABLE  graduates (
+    ID INTEGER NOT NULL PRIMARY KEY,
+    Name  TEXT NOT NULL UNIQUE,
+    Age INTEGER,
+    Gender TEXT,
+    Points INTEGER,
+	Graduation TEXT
+	
+	);
+
+
+  #----------------Execute SQL-------------------------------
+
+     #1copied 
+     INSERT INTO graduates (ID, Name, Age, Gender , Points , Graduation)
+	 SELECT 4, "Layal", '18', "F" , 350 , 08/09/2018  FROM students 
+	 WHERE ID = 4;
+
+
+
+     #2Add the graduation
+     UPDATE graduates 
+     SET Graduation = "08/09/2018" 
+
+
+     #3. Remove Layal's record from **students**
+     DELETE FROM students WHERE ID = 4;
