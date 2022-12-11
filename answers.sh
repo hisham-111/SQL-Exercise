@@ -117,3 +117,35 @@ WHERE Name = "Alex" and Points =200;
     RIGHT JOIN companies
     ON employees.ID = companies.ID
     WHERE employees.Role = 'Graphic Designer';
+
+
+    #-------------------Count & Filter----------------------------
+
+   #1. Find the person with the highest number of points in **students**
+
+
+    	SELECT students.Name from students
+			WHERE Points = (
+			SELECT max(Points)
+			FROM students
+      );
+
+
+    #2. Find the average of points in **students**
+
+      SELECT AVG(Points) 
+			FROM students; 
+
+    #3 .Find the number of students that have 500 points
+      SELECT count( * ) as total_record FROM `students` 
+      WHERE students.Points = 500 
+
+    #4 .Find the names of students that contains 's'
+
+
+    SELECT * from students 
+		where students.Name like '%s%'
+
+    #5 .Find all students based on the decreasing order of their points
+
+    SELECT * FROM students ORDER BY Points desc
