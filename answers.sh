@@ -63,8 +63,8 @@ WHERE Name = "Alex" and Points =200;
 
      #1copied 
      INSERT INTO graduates (ID, Name, Age, Gender , Points , Graduation)
-	 SELECT 4, "Layal", '18', "F" , 350 , 08/09/2018  FROM students 
-	 WHERE ID = 4;
+      SELECT 4, "Layal", '18', "F" , 350 , 08/09/2018  FROM students 
+      WHERE ID = 4;
 
 
 
@@ -86,37 +86,26 @@ WHERE Name = "Alex" and Points =200;
 
   #Execute SQL
 
-  #1. Produce a table 
-
-  #  CREATE TABLE companies_employees (
-	# 		ID INTEGER AUTO_INCREMENT NOT NULL,
-	# 		Name TEXT NOT NULL UNIQUE,
-	# 		CompanyName  TEXT NOT NULL UNIQUE,
-	# 		CompanyDate  INTEGER NOT NULL
-	# 	);
-
   #-1. Produce a table that contains, for each employee, his/her name, company name, and company date.
-    SELECT employees.ID ,employees.Name,employees.Role , employees.Company ,companies.Date
-		FROM   employees
-		RIGHT JOIN companies
-		ON employees.ID = companies.ID;
+   
 
+          CREATE TABLE   JoinTable AS
+          SELECT  employees.ID ,employees.Name,employees.Role , employees.Company ,companies.Date
+          FROM   employees
+          RIGHT JOIN companies
+          ON employees.ID = companies.ID;
+
+ 
 
   #2. Find the name of **employees** that work in companies made before 2000.
-    SELECT employees.ID ,employees.Name,employees.Role , employees.Company ,companies.Date 
-		FROM   employees
-		RIGHT JOIN companies
-		ON employees.ID = companies.ID
-		
-		WHERE companies.Date <= 2000 ;
+ 
+		      SELECT name from  JoinTable 
+		     	WHERE Date < 2000 ;
 
   #3. Find the name of company that has a graphic designer.
 
-    SELECT employees.ID ,employees.Name,employees.Role , employees.Company ,companies.Date
-    FROM   employees
-    RIGHT JOIN companies
-    ON employees.ID = companies.ID
-    WHERE employees.Role = 'Graphic Designer';
+          SELECT Company from  JoinTable 
+		     	WHERE Role = 'Graphic Designer' ;
 
 
     #-------------------Count & Filter----------------------------
