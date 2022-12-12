@@ -24,7 +24,7 @@ WHERE Name = "Alex";
 #problem 5. Add yourself as a new student \(your name, your age...\)
 
 INSERT INTO students (ID, Name, Age, Gender, Points)
-VALUES (7 ,"Hiyam","22","F",377) ;
+VALUES (7 ,"Hisham","23","M",377) ;
 
 
 #problem 6. Increase the points of **Basma** because she solved a new exercise
